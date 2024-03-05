@@ -60,6 +60,12 @@ Interface {
 	fontColor: #236122;
 }
 
+* [isAbstract=true] {
+	fillColor: #FFEBF1;
+	lineColor: #DB1A54;
+	fontColor: #DB1A54;
+}
+
 Package {
 	fillColor: #FBFCD7;
 	lineColor: #66521D;
