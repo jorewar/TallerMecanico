@@ -351,11 +351,11 @@
                         <body>10F</body>
                       </defaultValue>
                     </ownedAttribute>
-                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Dxv1AMzIEe66S_aNl6MGrQ" name="cliente" visibility="protected" type="_jXDz4MWLEe6GV74yg1DxAg" isUnique="false" aggregation="composite" association="_WZaBwMzKEe66S_aNl6MGrQ"/>
-                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxwcEMzIEe66S_aNl6MGrQ" name="vehiculo" visibility="protected" type="_rnFwYMWLEe6GV74yg1DxAg" isUnique="false" aggregation="composite" association="_XE_8cMzKEe66S_aNl6MGrQ"/>
-                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxwcEczIEe66S_aNl6MGrQ" name="fechaInicio" visibility="protected" type="_rnKo4MWLEe6GV74yg1DxAg" isUnique="false"/>
-                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxxDIMzIEe66S_aNl6MGrQ" name="fechaFin" visibility="protected" type="_rnKo4MWLEe6GV74yg1DxAg" isUnique="false"/>
-                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxxDIczIEe66S_aNl6MGrQ" name="horas" visibility="protected" type="_XiUR8MzHEe66S_aNl6MGrQ" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Dxv1AMzIEe66S_aNl6MGrQ" name="cliente" visibility="private" type="_jXDz4MWLEe6GV74yg1DxAg" isUnique="false" aggregation="composite" association="_WZaBwMzKEe66S_aNl6MGrQ"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxwcEMzIEe66S_aNl6MGrQ" name="vehiculo" visibility="private" type="_rnFwYMWLEe6GV74yg1DxAg" isUnique="false" aggregation="composite" association="_XE_8cMzKEe66S_aNl6MGrQ"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxwcEczIEe66S_aNl6MGrQ" name="fechaInicio" visibility="private" type="_rnKo4MWLEe6GV74yg1DxAg" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxxDIMzIEe66S_aNl6MGrQ" name="fechaFin" visibility="private" type="_rnKo4MWLEe6GV74yg1DxAg" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_DxxDIczIEe66S_aNl6MGrQ" name="horas" visibility="private" type="_XiUR8MzHEe66S_aNl6MGrQ" isUnique="false"/>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Dx0tgMzIEe66S_aNl6MGrQ" name="Trabajo" specification="_DxxqMMzIEe66S_aNl6MGrQ">
                       <language>JAVA</language>
                       <body>
@@ -539,19 +539,19 @@
                     <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx4-8MzIEe66S_aNl6MGrQ" name="getCliente" visibility="public" method="_Dx4-8szIEe66S_aNl6MGrQ">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dx4-8czIEe66S_aNl6MGrQ" type="_jXDz4MWLEe6GV74yg1DxAg" direction="return"/>
                     </ownedOperation>
-                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx5mAMzIEe66S_aNl6MGrQ" name="setCliente" visibility="protected" method="_Dx6NEczIEe66S_aNl6MGrQ">
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx5mAMzIEe66S_aNl6MGrQ" name="setCliente" visibility="private" method="_Dx6NEczIEe66S_aNl6MGrQ">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dx6NEMzIEe66S_aNl6MGrQ" name="cliente" type="_jXDz4MWLEe6GV74yg1DxAg"/>
                     </ownedOperation>
                     <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx60IMzIEe66S_aNl6MGrQ" name="getVehiculo" visibility="public" method="_Dx60IszIEe66S_aNl6MGrQ">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dx60IczIEe66S_aNl6MGrQ" type="_rnFwYMWLEe6GV74yg1DxAg" direction="return"/>
                     </ownedOperation>
-                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx7bMMzIEe66S_aNl6MGrQ" name="setVehiculo" visibility="protected" method="_Dx8CQczIEe66S_aNl6MGrQ">
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx7bMMzIEe66S_aNl6MGrQ" name="setVehiculo" visibility="private" method="_Dx8CQczIEe66S_aNl6MGrQ">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dx8CQMzIEe66S_aNl6MGrQ" name="vehiculo" type="_rnFwYMWLEe6GV74yg1DxAg"/>
                     </ownedOperation>
                     <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx8CQszIEe66S_aNl6MGrQ" name="getFechaInicio" visibility="public" method="_Dx8pUczIEe66S_aNl6MGrQ">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dx8pUMzIEe66S_aNl6MGrQ" type="_rnKo4MWLEe6GV74yg1DxAg" direction="return"/>
                     </ownedOperation>
-                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx9QYMzIEe66S_aNl6MGrQ" name="setFechaInicio" visibility="protected" method="_Dx93cczIEe66S_aNl6MGrQ">
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx9QYMzIEe66S_aNl6MGrQ" name="setFechaInicio" visibility="private" concurrency="guarded" method="_Dx93cczIEe66S_aNl6MGrQ">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dx93cMzIEe66S_aNl6MGrQ" name="fechaInicio" type="_rnKo4MWLEe6GV74yg1DxAg"/>
                     </ownedOperation>
                     <ownedOperation xmi:type="uml:Operation" xmi:id="_Dx93cszIEe66S_aNl6MGrQ" name="getFechaFin" visibility="public" method="_Dx-egczIEe66S_aNl6MGrQ">
@@ -606,7 +606,7 @@
                         <body>1.5F</body>
                       </defaultValue>
                     </ownedAttribute>
-                    <ownedAttribute xmi:type="uml:Property" xmi:id="_9kF_8szHEe66S_aNl6MGrQ" name="precioMaterial" visibility="protected" type="_rmxnUMWLEe6GV74yg1DxAg" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_9kF_8szHEe66S_aNl6MGrQ" name="precioMaterial" visibility="private" type="_rmxnUMWLEe6GV74yg1DxAg" isUnique="false"/>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9kK4cMzHEe66S_aNl6MGrQ" name="Mecanico" specification="_9kGnAMzHEe66S_aNl6MGrQ">
                       <language>JAVA</language>
                       <body>
@@ -1693,18 +1693,6 @@
                       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4WslQc78Ee6dsIuvGKkUNw" value="*"/>
                     </ownedParameter>
                   </ownedOperation>
-                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4WtMUM78Ee6dsIuvGKkUNw" name="mostrarTrabajosCliente" visibility="public">
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4WtzYM78Ee6dsIuvGKkUNw" name="trabajosCliente" type="_4WAowc78Ee6dsIuvGKkUNw">
-                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4WvBgM78Ee6dsIuvGKkUNw"/>
-                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4WvokM78Ee6dsIuvGKkUNw" value="*"/>
-                    </ownedParameter>
-                  </ownedOperation>
-                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4WwPoM78Ee6dsIuvGKkUNw" name="mostrarTrabajosVehiculo" visibility="public">
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4Ww2sM78Ee6dsIuvGKkUNw" name="trabajosVehiculo" type="_4WAowc78Ee6dsIuvGKkUNw">
-                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4WxdwM78Ee6dsIuvGKkUNw"/>
-                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4Wxdwc78Ee6dsIuvGKkUNw" value="*"/>
-                    </ownedParameter>
-                  </ownedOperation>
                 </packagedElement>
                 <packagedElement xmi:type="uml:Class" xmi:id="_4V23wc78Ee6dsIuvGKkUNw" name="Cliente"/>
                 <packagedElement xmi:type="uml:Class" xmi:id="_4V8-YM78Ee6dsIuvGKkUNw" name="Vehiculo"/>
@@ -1725,9 +1713,9 @@
                     </ownedAttribute>
                     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_FbLvQM79Ee6dsIuvGKkUNw" name="VistaTexto implements Vista" client="_FbIr8M79Ee6dsIuvGKkUNw" supplier="_4VwxIM78Ee6dsIuvGKkUNw" contract="_4VwxIM78Ee6dsIuvGKkUNw"/>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbOLgc79Ee6dsIuvGKkUNw" name="getGestorEventos" specification="_FbNkcM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r5WMM8dEe6dsIuvGKkUNw" type="_f-sukM8bEe6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r5WMc8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r5WMs8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldpQAOXDEe67icJYN8tl6w" type="_f-sukM8bEe6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldp3EOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldp3EeXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1746,9 +1734,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbQnwc79Ee6dsIuvGKkUNw" name="ejecutar" specification="_FbQAsM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r5WM88dEe6dsIuvGKkUNw" name="opcion" type="_gbjawM78Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r5WNM8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r5WNc8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldp3EuXDEe67icJYN8tl6w" name="opcion" type="_gbjawM78Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldp3E-XDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldp3FOXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1763,9 +1751,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbU5MM79Ee6dsIuvGKkUNw" name="leerCliente" specification="_FbRO0s79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r5WNs8dEe6dsIuvGKkUNw" type="_FbR14M79Ee6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r5WN88dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r5WOM8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldqeIOXDEe67icJYN8tl6w" type="_FbR14M79Ee6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldqeIeXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldqeIuXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1776,9 +1764,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbWHUc79Ee6dsIuvGKkUNw" name="leerClienteDni" specification="_FbVgQM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r59QM8dEe6dsIuvGKkUNw" type="_FbR14M79Ee6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r59Qc8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r59Qs8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldqeI-XDEe67icJYN8tl6w" type="_FbR14M79Ee6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldrFMOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldrFMeXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1786,9 +1774,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbXVcc79Ee6dsIuvGKkUNw" name="leerNuevoNombre" specification="_FbWuYM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r59Q88dEe6dsIuvGKkUNw" type="_jXQBIMWLEe6GV74yg1DxAg" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r59RM8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r59Rc8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldrFMuXDEe67icJYN8tl6w" type="_jXQBIMWLEe6GV74yg1DxAg" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldrFM-XDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldrFNOXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1796,9 +1784,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbYjkc79Ee6dsIuvGKkUNw" name="leerNuevoTelefono" specification="_FbX8gM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r59Rs8dEe6dsIuvGKkUNw" type="_jXQBIMWLEe6GV74yg1DxAg" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r59R88dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r59SM8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldrsQOXDEe67icJYN8tl6w" type="_jXQBIMWLEe6GV74yg1DxAg" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldrsQeXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldrsQuXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1806,9 +1794,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbcN8M79Ee6dsIuvGKkUNw" name="leerVehiculo" specification="_FbZKoM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r59Sc8dEe6dsIuvGKkUNw" type="_FbZKoc79Ee6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r59Ss8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r59S88dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldrsQ-XDEe67icJYN8tl6w" type="_FbZKoc79Ee6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldrsROXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldsTUOXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1819,9 +1807,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbeDIM79Ee6dsIuvGKkUNw" name="leerVehiculoMatricula" specification="_Fbc1AM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r59TM8dEe6dsIuvGKkUNw" type="_FbZKoc79Ee6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r59Tc8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r59Ts8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldsTUeXDEe67icJYN8tl6w" type="_FbZKoc79Ee6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lds6YOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lds6YeXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1829,9 +1817,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbjisM79Ee6dsIuvGKkUNw" name="leerRevision" specification="_FbeqMM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r59T88dEe6dsIuvGKkUNw" type="_FbeqMc79Ee6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r59UM8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r6kUM8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_lds6YuXDEe67icJYN8tl6w" type="_FbeqMc79Ee6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lds6Y-XDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lds6ZOXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1842,9 +1830,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fbl-8M79Ee6dsIuvGKkUNw" name="leerMecanico" specification="_FbkJwM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r6kUc8dEe6dsIuvGKkUNw" type="_FbeqMc79Ee6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r6kUs8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r6kU88dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldthcOXDEe67icJYN8tl6w" type="_FbeqMc79Ee6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldthceXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldthcuXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1855,9 +1843,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fbn0IM79Ee6dsIuvGKkUNw" name="leerTrabajoVehiculo" specification="_FbmmAM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r6kVM8dEe6dsIuvGKkUNw" type="_FbeqMc79Ee6dsIuvGKkUNw" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r6kVc8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r6kVs8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldthc-XDEe67icJYN8tl6w" type="_FbeqMc79Ee6dsIuvGKkUNw" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldthdOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lduIgOXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1865,9 +1853,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbpCQM79Ee6dsIuvGKkUNw" name="leerHoras" specification="_FbobMM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r6kV88dEe6dsIuvGKkUNw" type="_DqJ7EszPEe66S_aNl6MGrQ" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r6kWM8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r6kWc8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_lduIgeXDEe67icJYN8tl6w" type="_DqJ7EszPEe66S_aNl6MGrQ" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lduIguXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lduIg-XDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1875,9 +1863,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fbq3cM79Ee6dsIuvGKkUNw" name="leerPrecioMaterial" specification="_FbppUM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r6kWs8dEe6dsIuvGKkUNw" type="_rmxnUMWLEe6GV74yg1DxAg" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r6kW88dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r6kXM8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_lduIhOXDEe67icJYN8tl6w" type="_rmxnUMWLEe6GV74yg1DxAg" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lduvkOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lduvkeXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1885,9 +1873,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbssoM79Ee6dsIuvGKkUNw" name="leerFechaCierre" specification="_FbregM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r6kXc8dEe6dsIuvGKkUNw" type="_rnKo4MWLEe6GV74yg1DxAg" direction="return">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r6kXs8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r6kX88dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_lduvkuXDEe67icJYN8tl6w" type="_rnKo4MWLEe6GV74yg1DxAg" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lduvk-XDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lduvlOXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1895,17 +1883,17 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbwXAM79Ee6dsIuvGKkUNw" name="notificarResultado" specification="_Fbt6wM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7LYM8dEe6dsIuvGKkUNw" name="evento" type="_gbjawM78Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7LYc8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7LYs8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldvWoOXDEe67icJYN8tl6w" name="evento" type="_gbjawM78Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldvWoeXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldvWouXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7LY88dEe6dsIuvGKkUNw" name="texto" type="_jXQBIMWLEe6GV74yg1DxAg">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7LZM8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7LZc8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldvWo-XDEe67icJYN8tl6w" name="texto" type="_jXQBIMWLEe6GV74yg1DxAg">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldv9sOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldv9seXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7LZs8dEe6dsIuvGKkUNw" name="exito" type="_jhYNgMWLEe6GV74yg1DxAg">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7LZ88dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7LaM8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldv9suXDEe67icJYN8tl6w" name="exito" type="_jhYNgMWLEe6GV74yg1DxAg">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldv9s-XDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldv9tOXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1917,9 +1905,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FbyzQM79Ee6dsIuvGKkUNw" name="mostrarCliente" specification="_FbxlIM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7Lac8dEe6dsIuvGKkUNw" name="cliente" type="_FbR14M79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7Las8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7La88dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldwkwOXDEe67icJYN8tl6w" name="cliente" type="_FbR14M79Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldwkweXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldwkwuXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1927,9 +1915,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fb1PgM79Ee6dsIuvGKkUNw" name="mostrarVehiculo" specification="_FbzaUM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7LbM8dEe6dsIuvGKkUNw" name="vehiculo" type="_FbZKoc79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7Lbc8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7Lbs8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldwkw-XDEe67icJYN8tl6w" name="vehiculo" type="_FbZKoc79Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldwkxOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldxL0OXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1937,9 +1925,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fb3EsM79Ee6dsIuvGKkUNw" name="mostrarTrabajo" specification="_Fb12kM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7Lb88dEe6dsIuvGKkUNw" name="trabajo" type="_FbeqMc79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7LcM8dEe6dsIuvGKkUNw" value="1"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7Lcc8dEe6dsIuvGKkUNw" value="1"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldxL0eXDEe67icJYN8tl6w" name="trabajo" type="_FbeqMc79Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldxL0uXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldxL0-XDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1947,9 +1935,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fb5g8M79Ee6dsIuvGKkUNw" name="mostrarClientes" specification="_Fb3rwM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7ycM8dEe6dsIuvGKkUNw" name="clientes" type="_FbR14M79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7ycc8dEe6dsIuvGKkUNw"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7ycs8dEe6dsIuvGKkUNw" value="*"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldxy4OXDEe67icJYN8tl6w" name="clientes" type="_FbR14M79Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldxy4eXDEe67icJYN8tl6w"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldxy4uXDEe67icJYN8tl6w" value="*"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1963,9 +1951,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fb79Mc79Ee6dsIuvGKkUNw" name="mostrarVehiculos" specification="_Fb6vEM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7yc88dEe6dsIuvGKkUNw" name="vehiculos" type="_FbZKoc79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7ydM8dEe6dsIuvGKkUNw"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7ydc8dEe6dsIuvGKkUNw" value="*"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldxy4-XDEe67icJYN8tl6w" name="vehiculos" type="_FbZKoc79Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldxy5OXDEe67icJYN8tl6w"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldyZ8OXDEe67icJYN8tl6w" value="*"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1979,9 +1967,9 @@
 </body>
                     </ownedBehavior>
                     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fb9yYs79Ee6dsIuvGKkUNw" name="mostrarTrabajos" specification="_Fb8kQM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7yds8dEe6dsIuvGKkUNw" name="trabajos" type="_FbeqMc79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7yd88dEe6dsIuvGKkUNw"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7yeM8dEe6dsIuvGKkUNw" value="*"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldyZ8eXDEe67icJYN8tl6w" name="trabajos" type="_FbeqMc79Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldyZ8uXDEe67icJYN8tl6w"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldyZ8-XDEe67icJYN8tl6w" value="*"/>
                       </ownedParameter>
                       <language>JAVA</language>
                       <body>
@@ -1994,7 +1982,7 @@
     }
 </body>
                     </ownedBehavior>
-                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FcAOoM79Ee6dsIuvGKkUNw" name="mostrarTrabajosCliente" specification="_Fb_AgM79Ee6dsIuvGKkUNw">
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FcAOoM79Ee6dsIuvGKkUNw" name="mostrarTrabajosCliente">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r7yec8dEe6dsIuvGKkUNw" name="trabajosCliente" type="_FbeqMc79Ee6dsIuvGKkUNw">
                         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r7yes8dEe6dsIuvGKkUNw"/>
                         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r7ye88dEe6dsIuvGKkUNw" value="*"/>
@@ -2010,7 +1998,7 @@
     }
 </body>
                     </ownedBehavior>
-                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FcCD0M79Ee6dsIuvGKkUNw" name="mostrarTrabajosVehiculo" specification="_FcA1sM79Ee6dsIuvGKkUNw">
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FcCD0M79Ee6dsIuvGKkUNw" name="mostrarTrabajosVehiculo">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_4r8ZgM8dEe6dsIuvGKkUNw" name="trabajosVehiculo" type="_FbeqMc79Ee6dsIuvGKkUNw">
                         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4r8Zgc8dEe6dsIuvGKkUNw"/>
                         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4r8Zgs8dEe6dsIuvGKkUNw" value="*"/>
@@ -2102,18 +2090,6 @@
                         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Fb9yYc79Ee6dsIuvGKkUNw" value="*"/>
                       </ownedParameter>
                     </ownedOperation>
-                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fb_AgM79Ee6dsIuvGKkUNw" name="mostrarTrabajosCliente" visibility="public" method="_FcAOoM79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fb_nkM79Ee6dsIuvGKkUNw" name="trabajosCliente" type="_FbeqMc79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Fb_nkc79Ee6dsIuvGKkUNw"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Fb_nks79Ee6dsIuvGKkUNw" value="*"/>
-                      </ownedParameter>
-                    </ownedOperation>
-                    <ownedOperation xmi:type="uml:Operation" xmi:id="_FcA1sM79Ee6dsIuvGKkUNw" name="mostrarTrabajosVehiculo" visibility="public" method="_FcCD0M79Ee6dsIuvGKkUNw">
-                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_FcBcwM79Ee6dsIuvGKkUNw" name="trabajosVehiculo" type="_FbeqMc79Ee6dsIuvGKkUNw">
-                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FcBcwc79Ee6dsIuvGKkUNw"/>
-                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FcBcws79Ee6dsIuvGKkUNw" value="*"/>
-                      </ownedParameter>
-                    </ownedOperation>
                     <ownedOperation xmi:type="uml:Operation" xmi:id="_tqo0wM8IEe6dsIuvGKkUNw" name="mostrarTrabajos">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_tqo0wc8IEe6dsIuvGKkUNw" name="trabajoes" type="_4WAowc78Ee6dsIuvGKkUNw">
                         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tqpb0M8IEe6dsIuvGKkUNw"/>
@@ -2124,6 +2100,48 @@
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_jxoS0c8JEe6dsIuvGKkUNw" direction="return">
                         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jxo54M8JEe6dsIuvGKkUNw" value="1"/>
                         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jxo54c8JEe6dsIuvGKkUNw" value="1"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_k93jwOXDEe67icJYN8tl6w" name="mostrarTrabajosCliente">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_k97OIOXDEe67icJYN8tl6w" name="trabajosCliente" type="_4WAowc78Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k971MOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k971MeXDEe67icJYN8tl6w" value="*"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_k99qYOXDEe67icJYN8tl6w" name="mostrarTrabajosVehiculo">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_k9-RcOXDEe67icJYN8tl6w" name="trabajosVehiculo" type="_4WAowc78Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k9-RceXDEe67icJYN8tl6w"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k9-4gOXDEe67icJYN8tl6w" value="*"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_k-gc8OXDEe67icJYN8tl6w" name="mostrarTrabajosCliente">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_k-gc8eXDEe67icJYN8tl6w" name="trabajosCliente" type="_4WAowc78Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k-hEAOXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k-hEAeXDEe67icJYN8tl6w" value="1"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_k-6FkOXDEe67icJYN8tl6w" name="mostrarTrabajosCliente">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_k-6soOXDEe67icJYN8tl6w" name="trabajosCliente">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k-6soeXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k-7TsOXDEe67icJYN8tl6w" value="1"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_lcojYOXDEe67icJYN8tl6w" name="mostrarTrabajosVehiculo">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_lcpKcOXDEe67icJYN8tl6w" name="trabajosVehiculo" type="_4WAowc78Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lcpKceXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lcpKcuXDEe67icJYN8tl6w" value="*"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_lc96kOXDEe67icJYN8tl6w" name="mostrarTrabajosVehiculo">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_lc-hoOXDEe67icJYN8tl6w" name="trabajosVehiculo" type="_4WAowc78Ee6dsIuvGKkUNw">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lc-hoeXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lc-houXDEe67icJYN8tl6w" value="1"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_ldTRwOXDEe67icJYN8tl6w" name="mostrarTrabajosVehiculo">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ldT40OXDEe67icJYN8tl6w" name="trabajosVehiculo">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldUf4OXDEe67icJYN8tl6w" value="1"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldUf4eXDEe67icJYN8tl6w" value="1"/>
                       </ownedParameter>
                     </ownedOperation>
                   </packagedElement>
@@ -2390,7 +2408,7 @@
                     </ownedLiteral>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Class" xmi:id="_Mxq0oM79Ee6dsIuvGKkUNw" name="GestorEventos" visibility="public">
-                    <ownedAttribute xmi:type="uml:Property" xmi:id="_MxsCwM79Ee6dsIuvGKkUNw" name="receptores" visibility="private" type="_L0OM8cWREe6GV74yg1DxAg" isUnique="false">
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_MxsCwM79Ee6dsIuvGKkUNw" name="receptores" visibility="package" type="_L0OM8cWREe6GV74yg1DxAg" isUnique="false">
                       <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Mxsp0M79Ee6dsIuvGKkUNw" name="defaultValue">
                         <language>JAVA</language>
                         <body>new EnumMap&lt;>(Evento.class)</body>
@@ -2434,7 +2452,7 @@
                     <ownedOperation xmi:type="uml:Operation" xmi:id="_MxvGEM79Ee6dsIuvGKkUNw" name="GestorEventos" visibility="public" method="_Mx0loc79Ee6dsIuvGKkUNw">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_sXq74NAXEe6Ar5r2jK_vkw" name="eventos" type="_rwQ9oNAXEe6Ar5r2jK_vkw"/>
                     </ownedOperation>
-                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Mx3o8M79Ee6dsIuvGKkUNw" name="suscribir" visibility="package" method="_Mx6sQc79Ee6dsIuvGKkUNw">
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Mx3o8M79Ee6dsIuvGKkUNw" name="suscribir" visibility="public" method="_Mx6sQc79Ee6dsIuvGKkUNw">
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Mx4QAM79Ee6dsIuvGKkUNw" name="receptor" type="_Nx14MM79Ee6dsIuvGKkUNw"/>
                       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Mx43EM79Ee6dsIuvGKkUNw" name="eventos" type="_7noe8NAXEe6Ar5r2jK_vkw"/>
                     </ownedOperation>
@@ -2490,7 +2508,7 @@
           <packagedElement xmi:type="uml:Class" xmi:id="_rnKo4MWLEe6GV74yg1DxAg" name="LocalDate"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_L0OM8MWREe6GV74yg1DxAg" name="util">
-          <packagedElement xmi:type="uml:Class" xmi:id="_L0OM8cWREe6GV74yg1DxAg" name="Map&lt;ReceptorEventos, List&lt;Evento>>"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_L0OM8cWREe6GV74yg1DxAg" name="Map&lt;Evento, List&lt;ReceptorEventos>>"/>
         </packagedElement>
       </packagedElement>
     </packagedElement>
