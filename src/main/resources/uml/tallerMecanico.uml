@@ -3802,8 +3802,9 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Dxq6gMWLEe65drXdt8xEJQ" name="dominio">
         <ownedComment xmi:type="uml:Comment" xmi:id="_qJ0OIPcwEe6VQd-piZBu4w" annotatedElement="_S_wxEPcqEe6VQd-piZBu4w">
-          <body>-------------------------
-+ TipoTrabajo(nombre: String)
+          <body>- nombre: String
+-------------------------
+- TipoTrabajo(nombre: String)
 + &lt;&lt;static>> get(trabajo: Trabajo): TipoTrabajo</body>
         </ownedComment>
       </packagedElement>
