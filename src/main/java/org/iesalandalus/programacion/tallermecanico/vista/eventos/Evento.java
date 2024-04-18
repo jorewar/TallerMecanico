@@ -4,55 +4,59 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Evento {
-    INSERTAR_CLIENTE("Insertar cliente", 1),
-    BUSCAR_CLIENTE("Buscar cliente", 2),
-    BORRAR_CLIENTE("Borrar cliente", 3),
-    LISTAR_CLIENTES("Listar clientes", 4),
-    MODIFICAR_CLIENTE("Modificar cliente", 5),
-    INSERTAR_VEHICULO("Insertar vehículo", 6),
-    BUSCAR_VEHICULO("Buscar vehículo", 7),
-    BORRAR_VEHICULO("Borrar vehículo", 8),
-    LISTAR_VEHICULOS("Listar vehículos", 9),
-    INSERTAR_REVISION("Insertar revisión", 10),
-    INSERTAR_MECANICO("Insertar trabajo mecánico", 11),
-    BUSCAR_TRABAJO("Buscar trabajo", 12),
-    BORRAR_TRABAJO("Borrar trabajo", 13),
-    LISTAR_TRABAJOS("Listar trabajos", 14),
-    LISTAR_TRABAJOS_CLIENTE("Listar trabajos cliente", 15),
-    LISTAR_TRABAJOS_VEHICULO("Listar trabajos vehículo", 16),
-    ANADIR_HORAS_TRABAJO("Añadir horas trabajo", 17),
-    ANADIR_PRECIO_MATERIAL_TRABAJO("Añadir precio material trabajo", 18),
-    CERRAR_TRABAJO("Cerrar trabajo", 19),
-    SALIR("Salir", 20);
+    INSERTAR_CLIENTE(11, "Insertar cliente."),
+    BUSCAR_CLIENTE(12, "Buscar cliente."),
+    BORRAR_CLIENTE(13, "Borrar cliente."),
+    LISTAR_CLIENTES(14, "Listar clientes."),
+    MODIFICAR_CLIENTE(15, "Modificar cliente."),
+    INSERTAR_VEHICULO(21, "Insertar vehículo."),
+    BUSCAR_VEHICULO(22, "Buscar vehículo."),
+    BORRAR_VEHICULO(23, "Borrar vehículo."),
+    LISTAR_VEHICULOS(24, "Listar vehículos."),
+    INSERTAR_REVISION(31, "Insertar trabajo de revisión."),
+    INSERTAR_MECANICO(32, "Insertar trabajo mecánico."),
+    BUSCAR_TRABAJO(33, "Buscar trabajo."),
+    BORRAR_TRABAJO(34, "Borrar trabajo."),
+    LISTAR_TRABAJOS(35, "Listar trabajos."),
+    LISTAR_TRABAJOS_CLIENTE(36, "Listar trabajos de un cliente."),
+    LISTAR_TRABAJOS_VEHICULO(37, "Listar trabajos de un vehículo."),
+    ANADIR_HORAS_TRABAJO(38, "Añadir horas a un trabajo."),
+    ANADIR_PRECIO_MATERIAL_TRABAJO(39, "Añadir precio del material a un trabajo."),
+    CERRAR_TRABAJO(40, "Cerrar trabajo."),
+    SALIR(0, "Salir.");
 
-    private final String texto;
     private final int codigo;
+    private final String texto;
     private static final Map<Integer, Evento> eventos = new HashMap<>();
 
     static {
-        for (Evento opcion : Evento.values()) {
-            eventos.put(opcion.codigo, opcion);
+        for (Evento evento : values()) {
+            eventos.put(evento.codigo, evento);
         }
     }
 
-    Evento(String texto, int evento) {
+    private Evento(int codigo, String texto) {
+        this.codigo = codigo;
         this.texto = texto;
-        this.codigo = evento;
     }
 
-    public static boolean esValida(int codigo) {
-        return (eventos.containsKey(codigo));
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public static boolean esValido(int codigo) {
+        return eventos.containsKey(codigo);
     }
 
     public static Evento get(int codigo) {
-        if (!esValida(codigo)) {
-            throw new IllegalArgumentException("Número de código invalido. Inténtelo de nuevo.");
+        if (!esValido(codigo)) {
+            throw new IllegalArgumentException("El código no es correcto.");
         }
         return eventos.get(codigo);
     }
 
     @Override
     public String toString() {
-        return String.format("%s.- %s", this.codigo, this.texto);
+        return texto;
     }
 }

@@ -3,7 +3,8 @@ package org.iesalandalus.programacion.tallermecanico.vista;
 import org.iesalandalus.programacion.tallermecanico.vista.texto.VistaTexto;
 
 public enum FabricaVista {
-    TEXTO{
+
+    TEXTO {
         @Override
         public Vista crear() {
             return new VistaTexto();
@@ -12,4 +13,3 @@ public enum FabricaVista {
 
     public abstract Vista crear();
 }
-

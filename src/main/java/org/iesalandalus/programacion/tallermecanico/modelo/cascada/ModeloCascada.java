@@ -3,15 +3,12 @@ package org.iesalandalus.programacion.tallermecanico.modelo.cascada;
 import org.iesalandalus.programacion.tallermecanico.modelo.Modelo;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
 import org.iesalandalus.programacion.tallermecanico.modelo.negocio.*;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Clientes;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.FuenteDatosMemoria;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Trabajos;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Vehiculos;
 
 import javax.naming.OperationNotSupportedException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ModeloCascada implements Modelo {
     private IClientes clientes;
@@ -19,6 +16,7 @@ public class ModeloCascada implements Modelo {
     private ITrabajos trabajos;
 
     public ModeloCascada(FabricaFuenteDatos fabricaFuenteDatos) {
+        Objects.requireNonNull(fabricaFuenteDatos, "La factoría de la fuente de datos no puede ser nula.");
         IFuenteDatos fuenteDatos = fabricaFuenteDatos.crear();
         clientes = fuenteDatos.crearClientes();
         vehiculos = fuenteDatos.crearVehiculos();
@@ -27,12 +25,12 @@ public class ModeloCascada implements Modelo {
 
     @Override
     public void comenzar() {
-        System.out.println("Modelo ha comenzado");
+        System.out.println("Modelo comenzado.");
     }
 
     @Override
     public void terminar() {
-        System.out.println("El modelo ha terminado con éxito. ¡Gracias por utilizar nuestro sistema!");
+        System.out.println("Modelo terminado.");
     }
 
     @Override
@@ -42,90 +40,89 @@ public class ModeloCascada implements Modelo {
 
     @Override
     public void insertar(Vehiculo vehiculo) throws OperationNotSupportedException {
-        this.vehiculos.insertar(vehiculo);
+        vehiculos.insertar(vehiculo);
     }
 
     @Override
     public void insertar(Trabajo trabajo) throws OperationNotSupportedException {
-        if (trabajo instanceof Revision revision) {
-            this.trabajos.insertar(new Revision(clientes.buscar(revision.getCliente()), vehiculos.buscar(revision.getVehiculo()), revision.getFechaInicio()));
-        } else if (trabajo instanceof Mecanico mecanico) {
-            this.trabajos.insertar(new Mecanico(clientes.buscar(mecanico.getCliente()), vehiculos.buscar(mecanico.getVehiculo()), mecanico.getFechaInicio()));
+        Cliente cliente = clientes.buscar(trabajo.getCliente());
+        Vehiculo vehiculo = vehiculos.buscar(trabajo.getVehiculo());
+        if (trabajo instanceof Revision) {
+            trabajo = new Revision(cliente, vehiculo, trabajo.getFechaInicio());
+        } else {
+            trabajo = new Mecanico(cliente, vehiculo, trabajo.getFechaInicio());
         }
+        trabajos.insertar(trabajo);
     }
 
     @Override
     public Cliente buscar(Cliente cliente) {
-        Cliente clientebuscado = clientes.buscar(cliente);
-        return (clientebuscado == null) ? null : new Cliente(clientebuscado);
+        cliente = Objects.requireNonNull(clientes.buscar(cliente), "No existe un cliente igual.");
+        return new Cliente(cliente);
     }
 
     @Override
     public Vehiculo buscar(Vehiculo vehiculo) {
-        return vehiculos.buscar(vehiculo);
+        vehiculo = Objects.requireNonNull(vehiculos.buscar(vehiculo), "No existe un vehículo igual.");
+        return vehiculo;
     }
 
     @Override
     public Trabajo buscar(Trabajo trabajo) {
-        Trabajo trabajoBuscado = trabajos.buscar(trabajo);
-        if (trabajoBuscado != null) {
-            if (trabajo instanceof Revision revision) {
-                trabajoBuscado = new Revision(revision);
-            } else if (trabajo instanceof Mecanico mecanico) {
-                trabajoBuscado = new Mecanico(mecanico);
-            }
-        }
-        return trabajoBuscado;
+        trabajo = Objects.requireNonNull(trabajos.buscar(trabajo), "No existe un trabajo igual.");
+        return Trabajo.copiar(trabajo);
     }
 
     @Override
     public boolean modificar(Cliente cliente, String nombre, String telefono) throws OperationNotSupportedException {
-        return this.clientes.modificar(cliente, nombre, telefono);
+        return clientes.modificar(cliente, nombre, telefono);
     }
 
     @Override
     public void anadirHoras(Trabajo trabajo, int horas) throws OperationNotSupportedException {
-        this.trabajos.anadirHoras(trabajo, horas);
+        trabajos.anadirHoras(trabajo, horas);
     }
 
     @Override
     public void anadirPrecioMaterial(Trabajo trabajo, float precioMaterial) throws OperationNotSupportedException {
-        this.trabajos.anadirPrecioMaterial(trabajo, precioMaterial);
+        trabajos.anadirPrecioMaterial(trabajo, precioMaterial);
     }
 
     @Override
     public void cerrar(Trabajo trabajo, LocalDate fechaFin) throws OperationNotSupportedException {
-        this.trabajos.cerrar(trabajo, fechaFin);
+        trabajos.cerrar(trabajo, fechaFin);
     }
 
     @Override
     public void borrar(Cliente cliente) throws OperationNotSupportedException {
-        for (Trabajo trabajoCliente : trabajos.get(cliente)) {
-            this.trabajos.borrar(trabajoCliente);
+        List<Trabajo> trabajosCliente = trabajos.get(cliente);
+        for (Trabajo trabajo : trabajosCliente) {
+            trabajos.borrar(trabajo);
         }
-        this.clientes.borrar(cliente);
+        clientes.borrar(cliente);
     }
 
     @Override
     public void borrar(Vehiculo vehiculo) throws OperationNotSupportedException {
-        for (Trabajo trabajoVehiculo : trabajos.get(vehiculo)) {
-            this.trabajos.borrar(trabajoVehiculo);
+        List<Trabajo> trabajosVehiculo = trabajos.get(vehiculo);
+        for (Trabajo trabajo : trabajosVehiculo) {
+            trabajos.borrar(trabajo);
         }
-        this.vehiculos.borrar(vehiculo);
+        vehiculos.borrar(vehiculo);
     }
 
     @Override
     public void borrar(Trabajo trabajo) throws OperationNotSupportedException {
-        this.trabajos.borrar(trabajo);
+        trabajos.borrar(trabajo);
     }
 
     @Override
     public List<Cliente> getClientes() {
-        List<Cliente> coleccionClientesInstanciada = new ArrayList<>();
+        List<Cliente> copiaClientes = new ArrayList<>();
         for (Cliente cliente : clientes.get()) {
-            coleccionClientesInstanciada.add(new Cliente(cliente));
+            copiaClientes.add(new Cliente(cliente));
         }
-        return coleccionClientesInstanciada;
+        return copiaClientes;
     }
 
     @Override
@@ -135,41 +132,29 @@ public class ModeloCascada implements Modelo {
 
     @Override
     public List<Trabajo> getTrabajos() {
-        List<Trabajo> coleccionTrabajosInstanciada = new ArrayList<>();
+        List<Trabajo> copiaTrabajos = new ArrayList<>();
         for (Trabajo trabajo : trabajos.get()) {
-            if (trabajo instanceof Revision revision) {
-                coleccionTrabajosInstanciada.add(new Revision(revision));
-            } else if (trabajo instanceof Mecanico mecanico) {
-                coleccionTrabajosInstanciada.add(new Mecanico(mecanico));
-            }
+            copiaTrabajos.add(Trabajo.copiar(trabajo));
         }
-
-        return coleccionTrabajosInstanciada;
+        return copiaTrabajos;
     }
 
     @Override
     public List<Trabajo> getTrabajos(Cliente cliente) {
-        List<Trabajo> coleccionTrabajosClienteInstanciada = new ArrayList<>();
-        for (Trabajo trabajoCliente : trabajos.get(cliente)) {
-            if (trabajoCliente instanceof Revision revision) {
-                coleccionTrabajosClienteInstanciada.add(new Revision(revision));
-            } else if (trabajoCliente instanceof Mecanico mecanico) {
-                coleccionTrabajosClienteInstanciada.add(new Mecanico(mecanico));
-            }
+        List<Trabajo> trabajosCliente = new ArrayList<>();
+        for (Trabajo trabajo : trabajos.get(cliente)) {
+            trabajosCliente.add(Trabajo.copiar(trabajo));
         }
-        return coleccionTrabajosClienteInstanciada;
+        return trabajosCliente;
     }
 
     @Override
     public List<Trabajo> getTrabajos(Vehiculo vehiculo) {
-        List<Trabajo> coleccionTrabajosVehiculoInstanciada = new ArrayList<>();
-        for (Trabajo trabajoVehiculo : trabajos.get(vehiculo)) {
-            if (trabajoVehiculo instanceof Revision revision) {
-                coleccionTrabajosVehiculoInstanciada.add(new Revision(revision));
-            } else if (trabajoVehiculo instanceof Mecanico mecanico) {
-                coleccionTrabajosVehiculoInstanciada.add(new Mecanico(mecanico));
-            }
+        List<Trabajo> trabajosCliente = new ArrayList<>();
+        for (Trabajo trabajo : trabajos.get(vehiculo)) {
+            trabajosCliente.add(Trabajo.copiar(trabajo));
         }
-        return coleccionTrabajosVehiculoInstanciada;
+        return trabajosCliente;
     }
+
 }

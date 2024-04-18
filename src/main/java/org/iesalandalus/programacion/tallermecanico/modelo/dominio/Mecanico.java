@@ -2,12 +2,12 @@ package org.iesalandalus.programacion.tallermecanico.modelo.dominio;
 
 import javax.naming.OperationNotSupportedException;
 import java.time.LocalDate;
-import java.util.Objects;
 
-public class Mecanico extends Trabajo {
-    private static final float FACTOR_HORA = 30;
+public class Mecanico extends Trabajo{
+
+    private static final float FACTOR_HORA = 30F;
     private static final float FACTOR_PRECIO_MATERIAL = 1.5F;
-    private float precioMaterial;
+    protected float precioMaterial;
 
     public Mecanico(Cliente cliente, Vehiculo vehiculo, LocalDate fechaInicio) {
         super(cliente, vehiculo, fechaInicio);
@@ -16,7 +16,11 @@ public class Mecanico extends Trabajo {
 
     public Mecanico(Mecanico mecanico) {
         super(mecanico);
-        precioMaterial = mecanico.getPrecioMaterial();
+        precioMaterial = mecanico.precioMaterial;
+    }
+
+    public Mecanico(Vehiculo vehiculo, Vehiculo vehiculo1, LocalDate parse) {
+        super();
     }
 
     public float getPrecioMaterial() {
@@ -24,24 +28,29 @@ public class Mecanico extends Trabajo {
     }
 
     public void anadirPrecioMaterial(float precioMaterial) throws OperationNotSupportedException {
-        if (estaCerrado()) {
-            throw new OperationNotSupportedException("No se puede añadir precio del material, ya que el trabajo mecánico está cerrado.");
-        }
         if (precioMaterial <= 0) {
             throw new IllegalArgumentException("El precio del material a añadir debe ser mayor que cero.");
+        }
+        if (estaCerrado()) {
+            throw new OperationNotSupportedException("No se puede añadir precio del material, ya que el trabajo mecánico está cerrado.");
         }
         this.precioMaterial += precioMaterial;
     }
 
     @Override
     public float getPrecioEspecifico() {
-        float precioHora = (FACTOR_HORA * getHoras());
-        float precioMaterial = (FACTOR_PRECIO_MATERIAL * getPrecioMaterial());
-        return (precioHora + precioMaterial);
+        return (estaCerrado()) ? FACTOR_HORA * getHoras() + FACTOR_PRECIO_MATERIAL * getPrecioMaterial() : 0;
     }
 
     @Override
     public String toString() {
-        return (estaCerrado()) ? String.format("Mecánico -> %s - %s (%s - %s): %s horas, %.2f € en material, %.2f € total", getCliente(), getVehiculo(), getFechaInicio().format(FORMATO_FECHA), getFechaFin().format(FORMATO_FECHA), getHoras(), this.precioMaterial, getPrecio()) : String.format("Mecánico -> %s - %s (%s - ): %s horas, %.2f € en material", getCliente(), getVehiculo(), getFechaInicio().format(FORMATO_FECHA), getHoras(), this.precioMaterial);
+        String cadena;
+        if (!estaCerrado()) {
+            cadena = String.format("Mecánico -> %s - %s (%s - ): %d horas, %.2f € en material", cliente, vehiculo, fechaInicio.format(FORMATO_FECHA), horas, precioMaterial);
+        } else {
+            cadena = String.format("Mecánico -> %s - %s (%s - %s): %d horas, %.2f € en material, %.2f € total", cliente, vehiculo, fechaInicio.format(FORMATO_FECHA), fechaFin.format(FORMATO_FECHA), horas, precioMaterial, getPrecio());
+        }
+        return cadena;
     }
+
 }
