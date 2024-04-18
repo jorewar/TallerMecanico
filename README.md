@@ -1,6 +1,6 @@
 # Tarea: Taller mecánico
 ## Profesor: José Ramón Jiménez Reyes
-## Alumno:
+## Alumno: Jorge Cortés Cortés
 
 Al cliente le ha gustado bastante la aplicación, pero nos comenta algunas mejoras que necesita la anterior versión y nuevas funcionalidades que le gustaría que tuviese. Todo ello lo abordaremos en este **tercer sprint**.
 
