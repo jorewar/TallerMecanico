@@ -1,33 +1,27 @@
 # Tarea: Taller mecánico
 ## Profesor: José Ramón Jiménez Reyes
-## Alumno: jorge cortes cortes
+## Alumno:
 
-Al cliente le ha gustado bastante la aplicación, pero nos comenta algunas mejoras que necesita la anterior versión y nuevas funcionalidades que le gustaría que tuviese. Todo ello lo abordaremos en este **segundo sprint**.
+Al cliente le ha gustado bastante la aplicación, pero nos comenta algunas mejoras que necesita la anterior versión y nuevas funcionalidades que le gustaría que tuviese. Todo ello lo abordaremos en este **tercer sprint**.
 
-Nos comenta que el taller realiza dos tipos de trabajos:
-- **Revisiones**: Son las revisiones rutinarias que se realizan antes de pasar la ITV o revisiones de seguridad. A estos trabajos solo se le pueden añadir horas, dependiendo de lo que los mecánicos tarden en realizarlos. Si en la revisión se detecta que hay que cambiar algo, habría que cerrar la revisión y abrir un nuevo trabajo mecánico.
-- **Mecánicos**: Son los trabajos en los que se sustituyen piezas defectuosas, se corrigen errores de funcionamiento, etc. A este tipo de trabajos los mecánicos pueden, además de añadirles horas, añadirles precio del material que reemplazan.
+Nos comenta que necesita que añadamos persistencia de datos, ya que tal y como está ahora la aplicación no es funcional. 
 
-A la hora de facturar los trabajos, siempre se cobra un **precio fijo**, que se calcula como la multiplicación del **número de días** que el vehículo ha permanecido en el taller por **10**.
+También nos comenta que le gustaría que los listados se mostrasen ordenados de la siguiente forma:
+- **Clientes**: Ordenados por nombre y DNI.
+- **Vehículos**: Ordenados por marca, modelo y matrícula.
+- **Trabajos**: Ordenados por fecha de inicio y por cliente (nombre y DNI).
 
-A este precio fijo se le añade el **precio específico** de cada trabajo que se calcula de la siguiente forma:
-- **Revisiones**: Sería el **número de horas** dedicadas por los mecánicos por **35**.
-- **Mecánicos**: Se calcula como el **número de horas** por **30**, más el **precio del material** reemplazado por **1.5**.
+También nos comenta que le gustaría poder mostrar estadísticas mensuales indicando el número de tipos de trabajos realizados en dicho més.
 
-También nos comenta que, tanto para **añadir horas a un trabajo**, **añadir precio de material a un trabajo mecánico** o **cerrar un trabajo**, no es operativo la forma en que se venía realizando. Le gustaría que para estas operaciones simplemente pidiese la matrícula del vehículo y el dato en cuestión, ya que un vehículo solo puede tener un trabajo abierto y sería mucho más cómodo para los mecánicos.
+Por tanto, en este **tercer sprint** añadiremos **persistencia** a los datos utilizando para ello **ficheros XML**, para lo que sustituiremos el modelo que teníamos de memoria, por un modelo de ficheros. **Ordenaremos los listados** al mostrarlos y permitiremos mostrar **estadísticas mensuales por tipo de vehículo**.
 
-Por tanto, todo esto lo abordaremos en este **segundo sprint**. Además, vamos a aprovechar este **sprint** para **refactorizar** lo que llevamos implementado hasta ahora para implementar de una forma adecuada el patrón **Modelo-Vista-Controlador**, ya que prevemos que tendremos varias vistas y varias modelos para nuestra aplicación. Supondremos que en el futuro podremos tener **varios modelos** y que cada uno de ellos puede trabajar con diferentes **fuentes de datos**. También supondremos que tendremos **varias vistas**. Para ello implementaremos los siguientes **patrones de diseño**:
-- **Observador (Observer)**: Utilizado para evitar el mayor problema de diseño en el sprint anterior: la dependencia cíclica que existe entre la vista y el controlador.
-- **Método de fábrica (Factory Method)**: Utilizado para crear las vistas y los modelos. 
-- **Fábrica abstracta (Abstract Factory)**: Para crear las fuentes de datos.
-- **Método plantilla (Template Method)**: Para el cálculo del precio. 
+Al **analizar** cómo llevaremos a cabo la **persistencia**, hemos decidido leer los ficheros al arrancar la aplicación, gestionarlos en memoria y almacenarlos en los mismos ficheros al cerrar la aplicación. Cada clase de la implementación de la capa ficheros leerá su fichero y lo almacenará en una lista tal y como se hacía en la versión de memoria. Pero con esto nos surge algún que otro problema:
+- Los trabajos guardan una referencia del cliente y del vehículo, pero dicha clase no es capaz de comunicarse con las otras para poder buscar dichas referencias. Para solucionar este problema vamos a utilizar el **patrón singlenton**, con lo que solo podremos tener una única instancia de cada clase de la capa de ficheros. Con esto
+conseguimos que no haya más de una instancia que pueda leer el fichero y posteriormente modificarlo, por lo que podremos acceder sin problemas desde los trabajos a los clientes y a los vehículos para buscar las referencias.
+- Pero esto acarrea otro problema y es que estamos exponiendo dichas instancias a toda la aplicación, lo que podría permitir que desde cualquier lugar se pueda acceder a las mismas provocando efectos indeseados y rompiendo con el principio de ocultación de la información. Para solucionarlo jugaremos con las visibilidades. Haremos que los métodos que nos devuelven la instancia de cada clase (`getInstancia`) tengan una **visibilidad de paquete**, con lo que solo podremos acceder a ellas desde el paquete ficheros. También tenemos que hacer que la factoría de fuente de datos solo permita crearlas desde el mismo paquete para que solo se puedan crear
+fuentes de datos desde la capa de modelo. 
 
-Todo esto, aparte de algunos **patrones utilizados en el sprint anterior** como eran:
-- **Métodos estáticos de fábrica**: Utilizados en los métodos `get` de las clases de dominio.
-- **Objeto de transferencia de datos (Data Transfer Object - DTO)**: Utilizado en las clases de dominio.
-- **Objeto de acceso a los datos (Data Access Object - DAO)**: Utilizado en las clases de negocio.
-
-En este repositorio hay un esqueleto de proyecto **gradle** con las dependencias necesarias del proyecto y que, en la rama `refactorizacion_herencia`, ya lleva incluidos todos los test necesarios que el modelo debe pasar, con todo lo que hemos comentado.
+En este repositorio hay un esqueleto de proyecto **gradle** con las dependencias necesarias del proyecto y que, en la rama `ficherosXML`, ya lleva incluidos todos los test necesarios que el modelo debe pasar, con todo lo que hemos comentado.
 
 Para ello te muestro un diagrama de clases (en el que cuando se expresa cardinalidad `*` queremos expresar que se hará uso de **listas**) para el mismo y poco a poco te iré explicando los diferentes pasos a realizar:
 
@@ -35,51 +29,59 @@ Para ello te muestro un diagrama de clases (en el que cuando se expresa cardinal
 
 
 #### Primeros Pasos
-1. Lo primero que debes hacer es mezclar tu rama `sprint_inicial` con la rama `master`.
-2. Luego crea un nueva rama etiquetada como `refactorizacion_herencia`, a partir de la rama `master` que anteriormente habías mezclado..
-3. Añade el remote de mi repositorio como `profesor` y haz un `pull`.
-4. Cambiate a tu rama `master` y mezclala con la master de `profesor`. Añade tu nombre al `README.md`, haz `commit` y `push`a tu repositorio en la rama `master`.
-5. Cambia tu repositorio a la rama `refactorizacion_herencia` y mezclala con la misma rama de `profesor`.
-6. Modifica el archivo `README.md` para que incluya tu nombre en el apartado "Alumno". Realiza tu **primer commit** en esta nueva rama.
+1. Lo primero que debes hacer es mezclar tu rama `refactorizacion_herencia` con la rama `master` y crear un nueva rama etiquetada como `ficheros` a partir de ella.
+2. Añade el remote de mi repositorio (si aún no lo tenías añadido) y haz un `pull` del mismo de la rama `master`.
+3. Cámbiate a la rama `ficheros` y haz otro pull de mi remote de la misma rama.
+4. Modifica el archivo `README.md` para que incluya tu nombre en el apartado "Alumno".
+5. Haz que al controlador se le pasen las distintas fábricas (modelo, fuente de datos y vista) y sea él el que cree los objetos. Realiza tu **primer commit**.
 
-#### Adecuación del `dominio`
-1. Extrae la clase abstracta `Trabajo` a partir de la clase `Revision` anterior.
-2. Adecúa la clase `Trabajo` para que quede tal y como se muestra en el diagrama de clases. El método `copiar`copiará un trabajo llamando al constructor copia de la clase específica y para ello deberá saber si el parámetro que se pasa es instancia de una u otra clase. El método `get` devolverá un trabajo, una revisión por ejemplo, con un cliente cualquiera, una fecha de inicio cualquiera y el vehículo indicado.
-3. Adecúa la clase `Revision` para que quede como se muestra en el diagrama y se comporte como se indica en el enunciado.
-4. Crea la clase `Mecanico` para que quede como se muestra en el diagrama y se comporte como se indica en el enunciado.
-5. Comprueba que las clases de este paquete **pasan los tests** y cuando lo hagan haz un **commit**.
+#### Generación de las estadísticas
+1. Crea el enumerado `TipoTrabajo` tal y como se indica en el diagrama de clases.
+2. Añade el método `getEstadisticasMensuales`a la clase `Trabajos` e impleméntalo adecuadamente (utiliza el método `inicializarEstadisticas` para hacerlo más sencillo).
+3. Añádelos a la interfaz `ITrabajos`, al modelo y a la interfaz del modelo.
+4. Añade un nuevo evento para permitir ejecutar esta opción.
+5. Añade a la vista el método para leer el mes y también a la interfaz.
+6. Añade a la vista el método para mostrar las estadísticas y también a la interfaz.
+7. Haz que el controlador tenga en cuenta este evento y actúe en consecuencia. Realiza un **commit**.
 
-#### Adecuación del paquete `negocio`
-1. Crea el nuevo paquete `memoria`.
-2. Modifica la clase `Trabajos` para que los métodos `anadirHoras`, `anadirPrecioMaterial` y `cerrar` se basen en el trabajo abierto para el vehículo indicado en el trabajo que se pasa como parámetro.
-3. Extrae las interfaces de las clases.
-4. Crea la clase `FuenteDatosMemoria` y extra su interfaz.
-5. Crea el enumerado `FabricaFuenteDatos` que implementará la fábrica de modelos que por ahora solo tendrá la instancia `MEMORIA`.
-6. Comprueba que las clases de este paquete **pasan los tests** y cuando lo hagan haz un **commit**.
+#### Ordenación de los listados
+1. Haz que a la hora de mostrar los clientes se muestren ordenados tal y como indica el enunciado.
+2. Haz lo mismo para los vehículos.
+3. Haz lo mismo para los trabajos. Realiza un **commit**.
 
-#### Adecuación del paquete `modelo`
-1. Extrae la interfaz y renombra la clase para el modelo.
-2. Crea la fábrica de modelos, que por ahora solo tendrá la instancia `CASCADA`.
-3. Comprueba que las clases de este paquete **pasan los tests** y cuando lo hagan haz un **commit**.
-
-#### Adecuación del paquete `vista`
-1. Crea el paquete `eventos` y pasa el enumerado `Opcion` a este paquete. Renombra dicho enumerado a `Evento` y haz que los métodos se adecuen a lo expresado en el diagrama de clases.
-2. Crea la interfaz `ReceptorEventos` tal y como se muestra en el diagrama.
-3. Crea la clase `GestorEventos` que contendrá un mapa asociando a cada evento la lista de subscriptores (objetos que implementen la interfaz `ReceptorEventos`).
-4. Crea el paquete `texto` y adecua la clase `Consola` al diagrama (mueve los métodos necesarios a `Vista` y cambia la visibilidad de los restantes).
-5. Modifica la clase `Vista` a lo expresado en el diagrama.
-6. Renombra la clase `Vista` y extrae su interfaz.
-7. Crea el enumerado `FabricaVista` que implementará la fábrica para las vistas y que por ahora solo tendrá la instancia `TEXTO`.
-8. Realiza un **commit**.
-
-#### Adecuación del paquete `controlador`
-1. Adecúa la clase `Controlador` a lo expresado en el diagrama. Deberá suscribirse al gestor de eventos de la vista para todos los eventos y en el método `actualizar` los tratará interactuando con la vista y con el modelo para llevar a cabo las diferentes operaciones.
-2. Extrae la interfaz `IControlador` de la clase anterior que hereda de la interfaz `ReceptorEventos`.
-3. Realiza un **commit**.
-
-#### Adecuación de la clase `Main`
-1. Haz que esta clase utilice las diferentes fábricas para que todo funcione correctamente.
-2. Comprueba que todo funciona correctamente, realiza un **commit** y seguidamente realiza el **push** a tu repositorio remoto.
+#### Persistencia en ficheros XML
+1. Refactoriza la fuente de datos `MEMORIA` para que pase a llamarse `FICHEROS` (refactoriza lo que creas necesario también).
+2. Añade los métodos `comenzar` y `terminar` en las interfaces de la fuente de datos.
+3. Implementa el **patrón Singleton** en las clases `Clientes`, `Vehiculos` y `Trabajos`.
+4. Implementa los métodos `comenzar` y `terminar` para la clase `Clientes` del paquete `ficheros` para que al comenzar lea el fichero XML de vehículos, lo almacene en una lista y al terminar lo vuelva a almacenar en dicho fichero. El fichero se debe llamar `clientes.xml` y debes utilizar **rutas relativas** para trabajar con él. Debes implementar los métodos que se especifican en el diagrama y que son autoexplicativos. La estructura del fichero será la siguiente:
+    ~~~xml
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <clientes>
+        <cliente dni="11223344B" nombre="Bob Esponja" telefono="950112233"/>
+        <cliente dni="11111111H" nombre="Patricio Estrella" telefono="950111111"/>
+    </clientes>
+    ~~~
+5. Implementa los métodos `comenzar` y `terminar` para la clase `Vehiculos` del paquete `ficheros` para que al comenzar lea el fichero XML de vehículos, lo almacene en una lista y al terminar lo vuelva a almacenar en dicho fichero. El fichero se debe llamar `vehiculos.xml` y debes utilizar **rutas relativas** para trabajar con él. Debes implementar los métodos que se especifican en el diagrama y que son autoexplicativos. La estructura del fichero será la siguiente:
+    ~~~xml
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <vehiculos>
+        <vehiculo marca="Scania" matricula="1234BCD" modelo="Citywide"/>
+        <vehiculo marca="Seat" matricula="1111BBB" modelo="León"/>
+        <vehiculo marca="Renault" matricula="2222CCC" modelo="Megane"/>
+        <vehiculo marca="Mercedes-Benz" matricula="3333DDD" modelo="eSprinter"/>
+    </vehiculos>
+    ~~~
+6. Implementa los métodos `comenzar` y `terminar` para la clase `Trabajos` del paquete `ficheros` para que al comenzar lea el fichero XML de vehículos, lo almacene en una lista y al terminar lo vuelva a almacenar en dicho fichero. El fichero se debe llamar `trabajos.xml` y debes utilizar **rutas relativas** para trabajar con él. Debes implementar los métodos que se especifican en el diagrama y que son autoexplicativos. La estructura del fichero será la siguiente:
+    ~~~xml
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <trabajos>
+        <trabajo cliente="11223344B" fechaFin="07/03/2024" fechaInicio="01/03/2024" horas="10" tipo="revision" vehiculo="3333DDD"/>
+        <trabajo cliente="11111111H" fechaFin="14/03/2024" fechaInicio="10/03/2024" tipo="revision" vehiculo="1111BBB"/>
+        <trabajo cliente="11223344B" fechaFin="16/03/2024" fechaInicio="10/03/2024" horas="5" tipo="mecanico" vehiculo="1234BCD"/>
+        <trabajo cliente="11111111H" fechaInicio="15/03/2024" precioMaterial="125.500000" tipo="mecanico" vehiculo="2222CCC"/>
+    </trabajos>
+    ~~~
+7. Comprueba que todo funciona correctamente y que pasa todos los test. Realiza un **commit** y seguidamente realiza el **push** a tu repositorio remoto.
 
 
 #### Se valorará:
