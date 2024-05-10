@@ -1,10 +1,13 @@
 package org.iesalandalus.programacion.tallermecanico.modelo;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.*;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Clientes;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Trabajos;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Vehiculos;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.FabricaFuenteDatos;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.IClientes;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ITrabajos;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.IVehiculos;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ficheros.Clientes;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ficheros.Trabajos;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ficheros.Vehiculos;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +16,7 @@ import org.mockito.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +31,7 @@ class ModeloTest {
     @Mock
     private static ITrabajos trabajos;
     @InjectMocks
-    private Modelo modelo = FabricaModelo.CASCADA.crear(FabricaFuenteDatos.MEMORIA);
+    private Modelo modelo = FabricaModelo.CASCADA.crear(FabricaFuenteDatos.FICHEROS);
 
     private static Cliente cliente;
     private static Vehiculo vehiculo;
@@ -249,7 +253,7 @@ class ModeloTest {
         when(trabajos.get(cliente)).thenReturn(new ArrayList<>(List.of(revision)));
         List<Trabajo> trabajosCliente = modelo.getTrabajos(cliente);
         verify(trabajos).get(cliente);
-        assertNotSame(revision,trabajosCliente.get(0));
+        assertNotSame(revision, trabajosCliente.get(0));
     }
 
     @Test
@@ -257,7 +261,14 @@ class ModeloTest {
         when(trabajos.get(vehiculo)).thenReturn(new ArrayList<>(List.of(revision)));
         List<Trabajo> trabajosVehiculo = modelo.getTrabajos(vehiculo);
         verify(trabajos).get(vehiculo);
-        assertNotSame(revision,trabajosVehiculo.get(0));
+        assertNotSame(revision, trabajosVehiculo.get(0));
+    }
+
+    @Test
+    void getEstadisticasMensualesLlamaTrabajosGetEstadisticasMensuales() {
+        when(trabajos.getEstadisticasMensuales(LocalDate.now())).thenReturn(new EnumMap<>(TipoTrabajo.class));
+        modelo.getEstadisticasMensuales(LocalDate.now());
+        verify(trabajos).getEstadisticasMensuales(LocalDate.now());
     }
 
 }
