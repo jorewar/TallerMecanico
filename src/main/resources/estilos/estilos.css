@@ -1,0 +1,17 @@
+.root {
+	-fx-base: #ffe4c4;
+}
+
+.button {
+	-fx-background-radius: 10;
+}
+
+.label {
+    -fx-text-fill: #7f6aff;
+}
+
+#btSaludar {
+	-fx-font: 22 arial;
+	-fx-base: #b6e7c9;
+	-fx-text-fill: #bf5355;
+}

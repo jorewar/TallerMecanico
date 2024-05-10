@@ -9,7 +9,7 @@ public enum FabricaVista {
         public Vista crear() {
             return new VistaTexto();
         }
-    };
+    }, GRAFICAS;
 
     public abstract Vista crear();
 }
