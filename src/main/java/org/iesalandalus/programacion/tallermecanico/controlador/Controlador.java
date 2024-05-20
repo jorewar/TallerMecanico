@@ -1,11 +1,10 @@
 package org.iesalandalus.programacion.tallermecanico.controlador;
 
+import org.iesalandalus.programacion.tallermecanico.modelo.FabricaModelo;
 import org.iesalandalus.programacion.tallermecanico.modelo.Modelo;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Mecanico;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.FabricaFuenteDatos;
 import org.iesalandalus.programacion.tallermecanico.vista.Vista;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
-import org.iesalandalus.programacion.tallermecanico.vista.eventos.ReceptorEventos;
 
 import java.util.Objects;
 
@@ -20,6 +19,11 @@ public class Controlador implements IControlador {
         this.modelo = modelo;
         this.vista = vista;
         this.vista.getGestorEventos().suscribir(this, Evento.values());
+    }
+
+    public Controlador(FabricaModelo fabricaModelo, FabricaFuenteDatos fabricaFuenteDatos, Vista crear, Modelo modelo, Vista vista) {
+        this.modelo = modelo;
+        this.vista = vista;
     }
 
     @Override

@@ -6,21 +6,34 @@ plugins {
 
 javafx {
     version = "21"
-    modules = [ 'javafx.controls' , 'javafx.fxml']
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
+
 group = 'org.iesalandalus.programacion.tallermecanico'
 version = '1.0'
 
 repositories {
     mavenCentral()
-    maven { url 'https://jitpack.io' }
+    maven { url 'https://jitpack.io/' }
 }
 
 dependencies {
+    // JUnit Jupiter
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Mockito
     testImplementation 'org.mockito:mockito-inline:+'
+
+    // Entrada
     implementation 'com.github.JRJimenezReyes:entrada:1.0.3'
+
+    // Driver para mariaDB
+    implementation 'org.mariadb.jdbc:mariadb-java-client:+'
+    implementation 'org.slf4j:slf4j-simple:+'
+
+    // Driver para mongoDB
+    implementation 'org.mongodb:mongodb-driver-sync:+'
 }
 
 test {

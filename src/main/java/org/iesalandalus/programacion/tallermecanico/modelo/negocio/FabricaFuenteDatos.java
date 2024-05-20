@@ -8,7 +8,7 @@ public enum FabricaFuenteDatos {
         public IFuenteDatos crear() {
             return new FuenteDatosMemoria();
         }
-    };
+    }, MARIADB, FICHEROS;
 
     public abstract IFuenteDatos crear();
 }

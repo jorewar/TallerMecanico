@@ -11,5 +11,7 @@ public enum TipoTrabajo {
     }
 
 
-
+    public static Object get(Trabajo trabajo) {
+        return null;
+    }
 }
