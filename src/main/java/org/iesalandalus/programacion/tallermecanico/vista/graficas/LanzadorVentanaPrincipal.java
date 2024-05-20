@@ -1,8 +1,9 @@
-﻿import org.iesalandalus.programacion.tallermecanico.vista.graficas.VistaVentanas;
+﻿import javafx.application.Application;
+import org.iesalandalus.programacion.tallermecanico.vista.graficas.VistaVentanas;
 import org.iesalandalus.programacion.tallermecanico.vista.graficas.utilidades.Controladores;
 import org.iesalandalus.programacion.tallermecanico.vista.graficas.utilidades.Dialogos;
 
-public class LanzadorVentanaPrincipal extends Application{
+public class LanzadorVentanaPrincipal extends Application {
 
         public void start(Stage stage) throws Exception {
             Controlador ventanaPrincipal = Controladores.get (vistaFxml: "/vistas/VentanaPrincipal.fxml", "Taller Mecanico", null);
